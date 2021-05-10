@@ -5,4 +5,4 @@ from scripts import get_args
 url = get_args.url
 port = get_args.port
 filename = get_args.filename
-Charles(url, port).saveSessionAsHar(filename))
+Charles(url, port).save_session_as_har(filename))

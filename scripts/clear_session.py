@@ -5,4 +5,4 @@ from scripts import get_args
 
 url = get_args.url
 port = get_args.port
-Charles(url, port).sendCommand(control_url.clear_session)
+Charles(url, port).send_command(control_url.clear_session)
