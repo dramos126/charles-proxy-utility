@@ -10,7 +10,7 @@ def url():
 
 def port():
     port = "none"
-        if len(sys_args) > 2:
+    if len(sys_args) > 2:
         port = sys_args[2]
     return port
     
