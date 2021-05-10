@@ -1,5 +1,6 @@
 import subprocess
 import os
+from src.Control_URL import Control_URL
 
 class Charles:
     this_dir = os.path.dirname(os.path.realpath(__file__))
@@ -18,8 +19,12 @@ class Charles:
         curlCommand = "curl -x -v {0}:{1} {2}".format(self.url, str(self.port), command)
         subprocess.call(curlCommand, shell=True)
 
-    def saveFile(self, filename, format):
-        curlCommand = "curl -o {0} -x {1}:{2}, {3} > {4}.".format()
+    def saveFile(self, filename, control_url):
+        curlCommand = "curl -o {0} -x {1}:{2}, {3}.".format(filename, url, port, control_url))
+
+    def saveSessionAsHar(self, filename):
+        file = get_output_dir() + filename
+        saveFile(file, Control_URL().export_har)
 
    
 
