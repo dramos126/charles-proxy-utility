@@ -1,8 +1,11 @@
+
 import subprocess
 import os
 import socket
 import sys
-from presets import control_url
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from src.presets import control_url
+
 
 class Charles:
     
@@ -11,14 +14,12 @@ class Charles:
             self.port = str(port if port != "none" else 8888)
     
     this_dir = os.path.dirname(os.path.realpath(__file__))
-    
-    def get_output_dir(self):
-        logs_dir = this_dir + "/logs/"
-        if not os.path.exists(logs_dir):
-            os.makedirs(logs_dir)
-        return logs_dir
-    
-    output_dir = self.get_output_dir()
+
+
+    logs_dir = this_dir + "/logs/"
+    if not os.path.exists(logs_dir):
+        os.makedirs(logs_dir)      
+    output_dir = logs_dir
    
     def send_command(self, command):
         curlCommand = "curl -x -v {0}:{1} {2}".format(self.url, self.port, command)
