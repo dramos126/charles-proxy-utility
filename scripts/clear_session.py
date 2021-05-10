@@ -1,8 +1,8 @@
 import os
 from src.charles_lib import Charles
-from src.control_url import Control_URL
-from get_sys_argv import Get
+from src import control_url
+from scripts import get_args
 
-url = Get.url()
-port = Get.port()
-Charles(url, port).sendCommand(Control_URL.clear_session)
+url = get_args.url
+port = get_args.port
+Charles(url, port).sendCommand(control_url.clear_session)

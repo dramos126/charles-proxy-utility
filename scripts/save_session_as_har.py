@@ -1,8 +1,8 @@
 import os
 from src.charles_lib import Charles
-from get_sys_argv import Get
+from scripts import get_args
 
-url = Get.url()
-port = Get.port()
-filename = Get.fileanem()
+url = get_args.url
+port = get_args.port
+filename = get_args.filename
 Charles(url, port).saveSessionAsHar(filename))

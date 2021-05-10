@@ -2,7 +2,7 @@ import subprocess
 import os
 import socket
 import sys
-from src.control_url import control_url
+from src import control_url
 
 class Charles:
     
@@ -30,7 +30,7 @@ class Charles:
 
     def saveSessionAsHar(self, filename):
         har_file = output_dir + filename
-        saveFile(har_file, control_url().export_har)
+        saveFile(har_file, control_url.export_har)
 
     
 
