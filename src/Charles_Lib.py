@@ -6,7 +6,7 @@ from src.Control_URL import Control_URL
 
 class Charles:
     
-    def __init__(self, url = "none", port = "none"):
+    def __init__(self, url, port):
             self.url = url if url != "none" else socket.gethostbyname(socket.gethostname())
             self.port = str(port if port != "none" else 8888)
     
