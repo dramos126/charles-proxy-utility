@@ -5,4 +5,4 @@ from src.charles_lib import Charles
 from src.presets import control_url
 from scripts import get_args
 
-Charles(get_args.url, get_args.port).send_command(control_url.clear_session)
+Charles(get_args.url(), get_args.port()).send_command(control_url.clear_session)

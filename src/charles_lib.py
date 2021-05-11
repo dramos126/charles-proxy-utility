@@ -22,16 +22,16 @@ class Charles:
     output_dir = logs_dir
    
     def send_command(self, command):
-        curlCommand = "curl -x -v {0}:{1} {2}".format(self.url, self.port, command)
-        subprocess.call(curlCommand)
+        curlCommand = "curl -v -x {0}:{1} {2}".format(self.url, self.port, command)
+        subprocess.call(curlCommand, shell=True)
 
     def save_file(self, filename, control_url):
         curlCommand = "curl -o {0} -x {1}:{2}, {3}.".format(filename, self.url, self.port, control_url)
-        subprocess.call(curlCommand)
+        subprocess.call(curlCommand, shell=True)
 
     def save_session_as_har(self, filename):
-        har_file = output_dir + filename
-        save_file(har_file, control_url.export_har)    
+        har_file = "{0}{1}.har".format(self.output_dir, filename)
+        self.save_file(str(har_file), control_url.export_har)    
 
     def delete_old_logs(self):
         os.removedirs(self.output_dir)
