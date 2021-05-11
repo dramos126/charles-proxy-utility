@@ -6,7 +6,6 @@ import sys
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from src.presets import control_url
 
-
 class Charles:
     
     def __init__(self, url, port):
@@ -14,7 +13,6 @@ class Charles:
             self.port = str(port if port != "none" else 8888)
     
     this_dir = os.path.dirname(os.path.realpath(__file__))
-
 
     logs_dir = this_dir + "/logs/"
     if not os.path.exists(logs_dir):
@@ -32,6 +30,19 @@ class Charles:
     def save_session_as_har(self, filename):
         har_file = "{0}{1}.har".format(self.output_dir, filename)
         self.save_file(str(har_file), control_url.export_har)    
+
+    def save_session_as_json(self, filename):
+        json_file = "{0}{1}.json".format(self.output_dir, filename)
+        self.save_file(filename, control_url.export_json)
+
+    def save_session_as_xml(self, filename):
+        json_file = "{0}{1}.xml".format(self.output_dir, filename)
+        self.save_file(filename, control_url.export_xml)
+
+    def save_raw_session(self, filename):
+        json_file = "{0}{1}.chls".format(self.output_dir, filename)
+        self.save_file(filename, control_url.export_raw_chls)
+
 
     def delete_old_logs(self):
         os.removedirs(self.output_dir)
