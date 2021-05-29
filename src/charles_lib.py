@@ -43,6 +43,5 @@ class Charles:
         json_file = "{0}{1}.chls".format(self.output_dir, filename)
         self.save_file(filename, control_url.export_raw_chls)
 
-
     def delete_old_logs(self):
         os.removedirs(self.output_dir)
